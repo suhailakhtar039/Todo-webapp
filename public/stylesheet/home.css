@@ -4,3 +4,50 @@
 	position: relative;
 	padding-top: 5vh;
 }
+img{
+  width: 150px;
+  margin: auto ;
+}
+
+h1{
+  text-align: center;
+}
+#log{   
+	padding-top: 50px;
+  	padding-right: 4px;
+  	padding-bottom: 80px;
+ 	padding-left: 4px;
+	-webkit-box-shadow: 0px 0px 65px 14px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 65px 14px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 65px 14px rgba(0,0,0,0.75); 
+}
+label{
+  color:white;
+  font-size: 20px;
+}
+body{
+  background-image:url(https://images.wallpaperscraft.com/image/wood_background_texture_36573_300x168.jpg);
+  background-size : cover;
+  background-attachment: fixed;
+}
+h1{
+	margin-bottom: 10px;
+	color: white;
+}
+a:link {
+  color: black;
+}
+#frgt{
+  color:white;
+  float:left;
+  margin-top:6px;
+  font-size:20px;
+}
+#cna{
+  float:right;
+  margin-top:6px;
+  font-size:20px;
+}
+.shift{
+	padding: 40px 40px;
+}

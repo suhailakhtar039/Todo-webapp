@@ -6,36 +6,46 @@
   <meta name="viewport" content="width=device-width , initial-state=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="stylesheet/signup.css">
+  <script type="text/javascript">
+    window.onload=function(){
+     var pwd=document.querySelector("#pwd");
+    var cpwd=document.querySelector("#cpwd");
+    var btn=document.querySelector("#smt");
+    var message=document.querySelector("#message");
+    window.check=function(){
+      if(pwd.value==cpwd.value){
+        btn.disabled=false;
+      }else {
+        btn.disabled=true;
+        if(pwd.value!="" && cpwd.value!=""){
+          alert("Password does not matches");
+        }
+      }
+    }
+    }
+  </script>
 </head>
 <body>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4 col-sm-4 col-xx-12"></div>
       <div class="col-md-4 col-sm-4 col-xx-12 shift">
-        <form id="log">
+        <form id="log" method="POST" action="/register">
           <h1 id="h">Sign up Form</h1>
-          <img class="rounded-circle mx-auto d-block" src="">
+          <img class="rounded-circle mx-auto d-block img-fluid" src="">
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Email" class="form-control">
+            <input type="text" name="name" placeholder="Name" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="first-name" placeholder="First Name" class="form-control">
+            <input type="text" name="username" placeholder="username" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="last-name" placeholder="Last Name" class="form-control">
+            <input id="pwd" type="password" onchange="check();" name="password" placeholder="Password" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Password" class="form-control">
+            <input id="cpwd" type="password" onchange="check();" name="confirm-password" placeholder="Confirm Password" class="form-control" required>
           </div>
-          <div class="form-group">
-            <label>Confirm Password</label>
-            <input type="password" name="confirm-password" placeholder="Confirm Password" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-block btn-success">Sign up</button>
+          <button id="smt" type="submit" class="btn btn-block btn-success">Sign up</button>
         </form>
       </div>
       <div class="col-md-4 col-sm-4 col-xx-12"></div>

@@ -25,7 +25,10 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 //========authentication setup ends========//
-
+app.use(function(req,res,next){
+	res.locals.currentUser=req.user;
+	next();
+})
 //==================basic set-up ends==================//
 //====routes=====//
 app.get("/",function(req,res){
@@ -67,7 +70,7 @@ app.get("/dashboard",isLoggedIn,function(req,res){
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){
 		return next();
-	}
+	} 
 	res.redirect("/login");
 }
 app.listen(3000,function(){

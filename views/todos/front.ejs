@@ -1,4 +1,11 @@
 <%include ../partials/header%>
+<script type="text/javascript">
+	window.onload=function(){
+		window.onclick=function(){
+			this.parent
+		}
+	}
+</script>
 <style type="text/css">
 	body{
 		background-image: none;
@@ -6,8 +13,18 @@
 </style>
 <div class="boxInFront">
 	<!-- Enter all your code with in this div -->
+	<form method="POST" action="/dashboard">
+		<input type="text" name="todo" placeholder="Enter your todo">
+		<input type="submit" placeholder="submit">
+	</form>
+	<h4>Showing all your todos</h4>
+	<ul>
+		<%for(var i=0;i<currentUser.todos.length;i++){%>
+				<li><%=currentUser.todos[i]%></li>
+				<!-- This is the li, You have to enter the icon here for transition -->
+			</form>
+		<%}%>
+	</ul>
 	<h1 style="color: black;">front page of todos</h1>
-	<li><a href="/logout">log out</a></li>
-	<li><a href="/">Home</a></li>
 </div>
 <%include ../partials/footer%>

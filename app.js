@@ -5,6 +5,7 @@ var express 					=require("express"),
 	passportLocalMongoose 		=require("passport-local-mongoose"),
 	User 						=require("./models/user"),
 	expressSession 				=require("express-session"),
+	methodOverride				=require("method-override"),
 	mongoose 					=require("mongoose");
 
 //==================basic set-up starts==================//
@@ -13,6 +14,7 @@ mongoose.connect("mongodb://localhost:27017/todoProject",{useNewUrlParser:true})
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 //========authentication setup starts========//
 app.use(expressSession({
 	secret:"Todo project sample",
@@ -65,7 +67,11 @@ app.get("/logout",function(req,res){
 app.get("/dashboard",isLoggedIn,function(req,res){
 	res.render("todos/front");
 });
-
+app.post("/dashboard",isLoggedIn,function(req,res){
+	req.user.todos.push(req.body.todo);
+	req.user.save();
+	res.redirect("/dashboard");
+})
 //=====middlewares====//
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){

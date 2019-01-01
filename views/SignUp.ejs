@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login Page</title>
+  <title>SignUp Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width , initial-state=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="stylesheet/signup.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <style type="text/css">
+    body{
+      background: #DE6262;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFB88C, #DE6262);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+  </style>
   <script type="text/javascript">
     window.onload=function(){
      var pwd=document.querySelector("#pwd");
@@ -28,10 +36,10 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-4 col-md-3 col-sm-2 col-xs-1"></div>
-      <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 shift">
+      <div class="col-lg-3 col-md-3 col-sm-2 col-xs-1"></div>
+      <div class="col-lg-5 col-md-6 col-sm-8 col-xs-10 shift justify-content-center">
         <form id="log" method="POST" action="/register">
-          <h1 id="h">Sign up Form</h1>
+          <h1 id="h" style="text-align: center;"> <i class="fas fa-user-plus"></i> Sign up Form</h1>
           <img class="rounded-circle mx-auto d-block img-fluid" src="">
           <div class="form-group">
             <input type="text" name="name" placeholder="Name" class="form-control" required>

@@ -1,11 +1,4 @@
 <%include ../partials/header%>
-<script type="text/javascript">
-	window.onload=function(){
-		window.onclick=function(){
-			this.parent
-		}
-	}
-</script>
 <style type="text/css">
 	body{
 		background-image: none;
@@ -18,9 +11,9 @@
 		<input type="submit" placeholder="submit">
 	</form>
 	<h4>Showing all your todos</h4>
-	<ul>
+	<ul class="containerForLi">
 		<%for(var i=0;i<currentUser.todos.length;i++){%>
-				<li><%=currentUser.todos[i]%></li>
+				<li class="temp"><span><a href="#">del</a></span><span><a href="#">edi</a></span><%=currentUser.todos[i]%></li>
 				<!-- This is the li, You have to enter the icon here for transition -->
 			</form>
 		<%}%>

@@ -1,33 +1,59 @@
 <%include partials/header%>
 <style type="text/css">
+	h1{
+		font-size: 50px;
+		line-height: 40px;
+		margin: 1em 0 0.5em 0;
+		color: #343434;
+		font-weight: bold;
+		font-family: 'Ultra', sans-serif;   
+		font-size: 36px;
+		line-height: 42px;
+		text-transform: uppercase;
+		text-shadow: 0 2px white, 0 3px #777;
+	}
 	body img{
 		background-repeat: no-repeat;
 		position: fixed;
-		top: auto;
+		top: 0;
 		min-width: 100%;
 		min-height: 1024px;
 		opacity: 0.9;
 	}
+	div p{
+		opacity: 0;
+		font-size: 30px;
+	}
+	.fadeIn{
+		transition: ease-out 2s;
+		opacity: 1;
+	}
 	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var p=document.querySelector("p");
+			p.classList.add("fadeIn")
+		}
+	</script>
 <img src="https://images.unsplash.com/photo-1534989713668-e6c993fd1554?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80">
 <div class="container">
 	<div class="jumbotron" style="background-color: transparent; z-index: 1; position: relative;">
 			<h1>TODOs Manager</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua.
+			<hr style="width: 60%; margin:auto;">
+			<p>Why take a pen <i class="fas fa-pen"></i> and diary <i class="fas fa-book-open"></i> everywhere, along with you when you can store your to-dos using our app. Welcome to todos manager, here you can store, add and delete your todos. Access them anywhere, anytime.
+				<br>
+			Log In or Sign up and start using our ToDo manager. 
 			</p>
 	</div>
 </div>
 <div class="container">
 	<div class="wrapper">
-		<a href="/login" class="btn btn-lg btn-outline-primary home-button">Log In</a>
-		<a href="/register" class="btn btn-lg btn-outline-primary home-button">Sign Up</a>
+		<%if(!currentUser){%>
+			<a href="/login" class="btn btn-lg btn-outline-primary home-button"> <i class="fas fa-user-check"></i> Log In</a>
+			<a href="/register" class="btn btn-lg btn-outline-primary home-button"> <i class="fas fa-user-plus"></i> Sign Up</a>
+		<% }else{%>
+			<a href="/dashboard" class="btn btn-lg btn-outline-primary home-button"> <i class="fas fa-user"></i> DashBoard</a>
+		<%}%>
 	</div>
 </div>
 <%include partials/footer%>

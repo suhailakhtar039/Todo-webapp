@@ -25,11 +25,6 @@ label{
   color:white;
   font-size: 20px;
 }
-body{
-  background-image:url(https://images.wallpaperscraft.com/image/wood_background_texture_36573_300x168.jpg);
-  background-size : cover;
-  background-attachment: fixed;
-}
 h1{
 	margin-bottom: 10px;
 	color: white;
@@ -53,4 +48,26 @@ a:link {
 }
 .boxInFront{
   top:auto;
+}
+.temp{
+  height: 40px;
+  line-height: 40px;
+  background-color: #3ff33f;
+}
+li span{
+  width:0;
+  opacity: 0;
+  transition: .2s width;
+  display: inline-block;
+}
+li:hover span{
+  width:20px;
+  opacity: 1;
+}
+.temp:nth-child(2n){
+  background-color: #2f2f2f;
+}
+.containerForLi{
+  list-style: none;
+  width:360px;
 }

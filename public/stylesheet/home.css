@@ -64,9 +64,6 @@ li:hover span{
   width:20px;
   opacity: 1;
 }
-.temp:nth-child(2n){
-  background-color: #2f2f2f;
-}
 .containerForLi{
   list-style: none;
   width:360px;

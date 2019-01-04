@@ -72,6 +72,17 @@ app.post("/dashboard",isLoggedIn,function(req,res){
 	req.user.save();
 	res.redirect("/dashboard");
 })
+//=====delete===//
+app.delete("/dashboard/delete",function(req,res){
+	var todo=req.body.todo;
+	for(var i=0;i<req.user.todos.length;i++){
+		if(req.user.todos[i]==todo){
+			req.user.todos.splice(i,1);
+			req.user.save();
+			res.redirect("/dashboard");
+		}
+	}
+})
 //=====middlewares====//
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated()){

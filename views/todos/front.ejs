@@ -1,12 +1,35 @@
 <%include ../partials/header%>
+<style type="text/css">
+	body{
+background: #DD5E89;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F7BB97, #DD5E89);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F7BB97, #DD5E89); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
+	.temp{
+		opacity: 0;
+		color:black;
+		font-size:25px;
+		font-style:sans-serif;
+		background-color: transparent;
+		text-transform: capitalize;
+	}
+	.fadeIn{
+		opacity: 1;
+		transition: linear .5s;
+	}
+	.forNumber{
+		list-style: decimal;
+	}
+</style>
 <script type="text/javascript">
 	window.onload=function(){
-		window.onclick=function(){
-			this.parent
+		var li=document.querySelectorAll(".temp");
+		console.log(li);
+		for(var i=0;i<li.length;i++){
+			li[i].classList.add("fadeIn");
 		}
 	}
 </script>
-
 <%if(currentUser.todos.length == 0){%>
 	<style type="text/css">
 	#del{
@@ -43,15 +66,14 @@
 	<div class="col-lg-4 col-md-8 col-sm-8 col-xs-10" id="padding" > 
 		
 		<div >
-			<h1>No ToDos</h1>
+			<h1>Bravo! No ToDos left</h1>
 		</div>
-
-		
 		<form method="POST" action="/dashboard">
-			<h4>Add a ToDo</h4>
+			<h3 style="text-align: center;">Add a new ToDo</h3>
 			<div id="frm">
 				<input type="text" name="todo" placeholder="Enter your todo" class="form-control">
-				<button type="submit" class="btn btn-block btn-success">Submit</button>
+				<button type="submit" class="btn btn-block btn-success"> <i class="fas fa-plus"></i> Add</button>
+				<p style="font-weight: bold;"><em>(pro tip:-Keep your todo as short as you can.)</em></p>
 			</div>
 		</form>
 		<br>
@@ -81,8 +103,11 @@
 		box-shadow: 10px 0px 110px -15px rgba(0,0,0,0.75);
 		padding:40px 0px;
 		color:white;
+		height: 100%;
+		position: relative;
+		top: 0;
 	}
-	button{
+	#firstButton{
 		margin:4px auto;
 	}
 	li{
@@ -103,26 +128,36 @@
 <div class="container-fluid">
 	<div class="row" >
 	<div class="col-lg-4 col-md-2 col-sm-2 col-xs-1"> </div>
-	<div class="col-lg-4 col-md-8 col-sm-8 col-xs-10" id="padding" > 
+	<div class="col-lg-4 col-md-8 col-sm-8 col-xs-10" id="padding" style="width: 100px;"> 
 		
 		<form method="POST" action="/dashboard">
 			
-				<h4>Add a ToDo</h4>
+				<h3 style="text-align: center; color:black;">Add a ToDo</h3>
 				<div id="frm">
 					<input type="text" name="todo" placeholder="Enter your todo" class="form-control">
-					<button type="submit" class="btn btn-block btn-success">Submit</button>
+					<button type="submit" class="btn btn-block btn-success" id="firstButton"> <i class="fas fa-plus"></i> Add</button>
+					<p style="font-weight: bold; color:black;"><em>(pro tip:-Keep your todo as short as you can.)</em></p>
 				</div>
 		</form>
 		<br>
-		<div id="show">
-			<h4>Showing all your todos</h4>
-			<ul>
+		<div id="show" style="height: 100%;">
+			<h4>Listing all your todos.</h4>
+			<ul class="forNumber">
 				<%for(var i=0;i<currentUser.todos.length;i++){%>
-						<li><%=currentUser.todos[i]%><span ><a id="del" href="#"><i class="material-icons">delete</i></a></span> </li>	
+						<li class="temp" style="word-wrap: break-word; width: auto;"><%=currentUser.todos[i]%>
+							<!-- <span >
+							<a id="del" href="#"><i class="material-icons">delete</i></a></span> -->	
+							<span>
+								<form method="POST" action="/dashboard/delete/?_method=delete">
+									<input type="text" name="todo" value="<%=currentUser.todos[i]%>" style="visibility: hidden; position: absolute; display: none">
+									<button id="del" style="background-color: transparent; border: none; color:blue; text-decoration: underline; cursor: pointer; white-space: nowrap;"><i class="material-icons">completed</i></button>
+								</form>
+							</span> 
+						</li>
 				<%}%>
 			</ul>
 		</div>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
 	</div>
 	<div class="col-lg-4 col-md-2 col-sm-2 col-xs-1"> </div>
 </div>

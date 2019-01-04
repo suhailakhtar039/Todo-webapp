@@ -10,7 +10,8 @@ var express 					=require("express"),
 
 //==================basic set-up starts==================//
 var app=express();
-mongoose.connect("mongodb://localhost:27017/todoProject",{useNewUrlParser:true});
+// mongoose.connect("mongodb://localhost:27017/todoProject",{useNewUrlParser:true});
+mongoose.connect("mongodb://suhail:suhail786@ds149404.mlab.com:49404/todoproject",{useNewUrlParser:true});
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -90,6 +91,6 @@ function isLoggedIn(req,res,next){
 	} 
 	res.redirect("/login");
 }
-app.listen(3000,function(){
+app.listen(process.env.PORT||3000,function(){
 	console.log("server has started");
 });

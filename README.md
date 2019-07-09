@@ -17,7 +17,7 @@ Some of the core packages installed are:
 - passport: It provides user authentication in web app.
 
 ## Clone
-To clone entire repository run `git clone https://github.com/suhailakhtar039/sampleProject.git` on your machine.
+To clone entire repository run `git clone https://github.com/suhailakhtar039/Todo-webapp.git` on your machine.
 
 ## Deployement
 The project is deployed on `heroku` with URL https://guarded-lowlands-93671.herokuapp.com/
